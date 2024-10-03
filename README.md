@@ -17,13 +17,13 @@ Use this template to get started with a Next.js application. This boilerplate pr
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/goweki/next_starter.git
+   git clone https://github.com/machoka254/FusionGrid.git
    ```
 
 2. Navigate into the project directory:
 
     ```
-    cd next_starter
+    cd FusionGrid
     ```
 
 3. Install dependencies:
