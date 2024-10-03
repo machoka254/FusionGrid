@@ -1,0 +1,69 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DB_URL")
+}
+
+//  Users for AUTH
+enum userRole {
+    SUPER_ADMIN
+    ADMIN
+    SUPERVISOR
+    USER
+}
+
+model User {
+    id               String    @id @default(auto()) @map("_id") @db.ObjectId
+    email            String    @unique
+    name             String?
+    tel              String?   @unique
+    password         String?
+    role             userRole  @default(USER)
+    avatar           String?
+    resetToken       String?
+    resetTokenExpiry DateTime?
+
+    @@map("users")
+}
+
+enum mediaTypes {
+    BLOGPOST
+    IMAGE
+}
+
+model Media {
+    id      String     @id @default(auto()) @map("_id") @db.ObjectId
+    type    mediaTypes
+    image   String
+    title   String
+    content String
+
+    @@map("media")
+}
+
+// model Student {
+//     id     String @id @default(auto()) @map("_id") @db.ObjectId
+//     avatar String
+//     name   String
+//     admNo  String
+
+//     guardianIDs String[]   @db.ObjectId
+//     guardians   Guardian[] @relation(fields: [guardianIDs], references: [id])
+
+//     @@map("students")
+// }
+
+// model Guardian {
+//     id     String @id @default(auto()) @map("_id") @db.ObjectId
+//     name   String
+//     avatar String
+//     title  String
+
+//     studentIDs String[]  @db.ObjectId
+//     students   Student[] @relation(fields: [studentIDs], references: [id])
+
+//     @@map("guardians")
+// }
