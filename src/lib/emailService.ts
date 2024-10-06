@@ -641,9 +641,6 @@ const templateHTML = (
                                       <!--Header with logo-->
       
                                       <!--light mode logo-->
-                                      <a href="https://scope.goweki.com" target="_blank" rel="noopener noreferrer">
-                                          <h2 style="color: #ffffff; text-decoration: none;" >BUNGE SCOPE</h2>
-                                      </a>
                                   </td>
                               </tr>
                           </table>
@@ -692,7 +689,6 @@ const templateHTML = (
                                                   <p style="text-align: left;"><strong>This link will expire in 1
                                                           hour.</strong> If you did not request a new password, please
                                                       disregard this message.<br /><br /><strong>Questions?</strong> Contact
-                                                      <a href="mailto:scope@goweki.com">support@goweki.com</a>.
                                                   </p>
                                               </td>
                                           </tr>
@@ -753,8 +749,7 @@ const templatePlaintext = (_name: string, _parA: string, _url: string) => {
       ${_url}
       
       
-      BUNGE-SCOPE
-      https://scope.goweki.com
+      FusionGrid
       
       `;
 };

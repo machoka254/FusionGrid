@@ -183,7 +183,7 @@ export function getCanonicalURL(): string {
   const nodeEnv = process.env.NODE_ENV || "development";
 
   if (nodeEnv === "production") {
-    return "https://bunge-scope.vercel.app"; // live server
+    return "https://https://fusiongrid.vercel.app/"; // live server
   } else if (nodeEnv === "development") {
     return "http://localhost:3000"; // development server
   } else {

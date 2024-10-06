@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "next-starter",
-  description: "A Next.js starter app",
+  title: "Fusion Grid",
+  description: "Giving you control of your documents",
 };
 
 export default function RootLayout({
