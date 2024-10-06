@@ -43,7 +43,7 @@ const postHandler = async (request: Request) => {
         console.warn("Users limit count attained, failed to create: ", email);
         return Response.json({
           failed:
-            "Users quota exceeded. Try again later or contact admin via goweki.com",
+            "Users quota exceeded. Try again later or contact admin via machokabrian254@gmail.com",
         });
       }
       userExists = await prisma.user.create({

@@ -91,24 +91,24 @@ type EmailConfig = {
 
 const config: Record<string, EmailConfig> = {
   signUp: {
-    desc: "Sign Up (Goweki Chat)",
+    desc: "Sign Up (FusionGrid)",
     title: "Set New Password",
     parA_html:
       "Welcome! Click the button below to complete your sign-up process; or alternatively use the link: ",
     parA_text:
       "Welcome! Click, or copy the link below into your browser's address bar to complete your sign-up: ",
     cta: "Complete Sign-Up",
-    links: [{ label: "github", href: "https://github.com/goweki" }],
+    links: [{ label: "github", href: "https://github.com/machoka254" }],
   },
   reset: {
-    desc: "Set New Password (Goweki Chat)",
+    desc: "Set New Password (FusionGrid)",
     title: "Password Reset Info",
     parA_html:
       "We received a request to reset your password. Click the button below to set a new password; or alternatively use the link: ",
     parA_text:
       "We received a request to reset your password. Click, or copy the link below into your browser's address bar: ",
     cta: "Set New Password",
-    links: [{ label: "github", href: "https://github.com/goweki" }],
+    links: [{ label: "github", href: "https://github.com/machoka254" }],
   },
 };
 
@@ -625,7 +625,7 @@ const templateHTML = (
       </head>
       
       <body id="body" class="darkmode2 body" bgcolor="#EDEEEF" style="background-color:#EDEEEF;">
-          <div role="article" aria-roledescription="email" aria-label="Email from GOWEKI" xml:lang="en" lang="en">
+          <div role="article" aria-roledescription="email" aria-label="Email from Braian Machoka" xml:lang="en" lang="en">
               <!--hidden preheader with pre-header spacer hack-->
               <div class="litmus-builder-preview-text" style="display:none;">${_description}
               </div>
@@ -641,6 +641,9 @@ const templateHTML = (
                                       <!--Header with logo-->
       
                                       <!--light mode logo-->
+                                      <a href="https://github.com/machoka254" target="_blank" rel="noopener noreferrer">
+                                          <h2 style="color: #ffffff; text-decoration: none;" >FusionGrid</h2>
+                                      </a>
                                   </td>
                               </tr>
                           </table>
@@ -689,6 +692,7 @@ const templateHTML = (
                                                   <p style="text-align: left;"><strong>This link will expire in 1
                                                           hour.</strong> If you did not request a new password, please
                                                       disregard this message.<br /><br /><strong>Questions?</strong> Contact
+                                                      <a href="mailto:machokabrian254@gmail.com">machokabrian254@gmail.com</a>.
                                                   </p>
                                               </td>
                                           </tr>

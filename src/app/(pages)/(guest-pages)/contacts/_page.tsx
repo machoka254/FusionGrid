@@ -68,7 +68,7 @@ export default function Contacts() {
                       </h5>
                     </a> */}
                     <Link
-                      href="mailto:contact@goweki.com"
+                      href="mailto:machokabrian254@gmail.com"
                       className="flex items-center mb-6"
                     >
                       <svg
@@ -85,7 +85,7 @@ export default function Contacts() {
                         />
                       </svg>
                       <h5 className=" text-base font-normal leading-6 ml-5">
-                        contact@goweki.com
+                        machokabrian254@gmail.com
                       </h5>
                     </Link>
                     <Link
