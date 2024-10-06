@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
     provider = "mongodb"
-    url      = env("DB_URL")
+    url      = env("DATABASE_URL")
 }
 
 //  Users for AUTH
@@ -26,44 +26,44 @@ model User {
     resetToken       String?
     resetTokenExpiry DateTime?
 
+    employerId String?      @db.ObjectId
+    Employer   Institution? @relation(fields: [employerId], references: [id])
+
+    Documents Document[]
+
     @@map("users")
 }
 
-enum mediaTypes {
-    BLOGPOST
-    IMAGE
+enum DocumentType {
+    BILL
+    RECEIPT
+    STATEMENT
 }
 
-model Media {
-    id      String     @id @default(auto()) @map("_id") @db.ObjectId
-    type    mediaTypes
-    image   String
-    title   String
-    content String
-
-    @@map("media")
+enum InstitutionType {
+    FINANCIAL
+    UTILITY
 }
 
-// model Student {
-//     id     String @id @default(auto()) @map("_id") @db.ObjectId
-//     avatar String
-//     name   String
-//     admNo  String
+model Institution {
+    id         String          @id @default(auto()) @map("_id") @db.ObjectId
+    name       String
+    identifier String
+    type       InstitutionType
 
-//     guardianIDs String[]   @db.ObjectId
-//     guardians   Guardian[] @relation(fields: [guardianIDs], references: [id])
+    Staff User[]
+}
 
-//     @@map("students")
-// }
+model Document {
+    id      String       @id @default(auto()) @map("_id") @db.ObjectId
+    type    DocumentType
+    subject String
 
-// model Guardian {
-//     id     String @id @default(auto()) @map("_id") @db.ObjectId
-//     name   String
-//     avatar String
-//     title  String
+    customer   User   @relation(fields: [customerId], references: [id])
+    customerId String @db.ObjectId
 
-//     studentIDs String[]  @db.ObjectId
-//     students   Student[] @relation(fields: [studentIDs], references: [id])
-
-//     @@map("guardians")
-// }
+    attachment   String
+    creationDate DateTime
+    periodFrom   DateTime
+    periodTo     DateTime
+}

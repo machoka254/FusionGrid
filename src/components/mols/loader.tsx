@@ -1,8 +1,8 @@
-import styles from "./loader.module.css";
-import "./styles.css";
+import "./loaderStyles.css";
 import { useRef } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-export default function LoaderHourglass({
+
+export default function LoaderBoxes({
   isLoading,
   onExited,
 }: {
@@ -20,8 +20,10 @@ export default function LoaderHourglass({
       unmountOnExit
       onExited={onExited}
     >
-      <div className={styles.loader + " opacity-0"} ref={nodeRef}>
-        <div className={styles.hourglass}></div>
+      <div ref={nodeRef}>
+        <svg className="container">
+          <rect className="boxes"></rect>
+        </svg>
       </div>
     </CSSTransition>
   );

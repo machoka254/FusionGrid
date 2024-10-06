@@ -22,9 +22,5 @@ export default function AuthLayout({
   }, [routeToUserCB, authStatus]);
 
   // render
-  return (
-    <main className="flex flex-col flex-grow items-center justify-between">
-      {children}
-    </main>
-  );
+  return <main className="flex h-full">{children}</main>;
 }

@@ -1,22 +1,25 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-const super_admin = require("../scripts/data/super_admin.json");
-const media = require("../scripts/data/media.json");
+const seed_data = require("./data/seed_data.json");
+const { users } = seed_data;
 
 // funtion definition
 async function seed() {
-  console.log("Seeding super_admin...");
-  await prisma.user.upsert({
-    where: { email: super_admin.email },
-    update: { ...super_admin },
-    create: { ...super_admin },
-  });
+  console.log("Seeding users...");
 
-  console.log("Seeding media...");
-  await prisma.media.createMany({
-    data: media,
-  });
+  // Loop through the users array and upsert each user
+  await Promise.all(
+    users.map(async (user) => {
+      await prisma.user.upsert({
+        where: { email: user.email }, // Check if the user with this email exists
+        update: { ...user }, // If exists, update the user
+        create: { ...user }, // If not exists, create a new user
+      });
+    })
+  );
+
+  console.log("Users have been seeded successfully.");
 }
 
 //function call
