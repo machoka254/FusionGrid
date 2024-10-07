@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "name": "Antonio G.",
+      "email": "antonio@goweki.com",
+      "role": "SUPER_ADMIN",
+      "avatar": "https://example.com/avatars/johndoe.png"
+    },
+    {
+      "name": "Brian Machoka",
+      "email": "machokabrian254@gmail.com",
+      "role": "SUPER_ADMIN",
+      "avatar": "https://example.com/avatars/johndoe.png"
+    }
+  ]
+}

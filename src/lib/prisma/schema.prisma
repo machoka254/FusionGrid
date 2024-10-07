@@ -1,0 +1,69 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
+}
+
+//  Users for AUTH
+enum userRole {
+    SUPER_ADMIN
+    ADMIN
+    SUPERVISOR
+    USER
+}
+
+model User {
+    id               String    @id @default(auto()) @map("_id") @db.ObjectId
+    email            String    @unique
+    name             String?
+    tel              String?   @unique
+    password         String?
+    role             userRole  @default(USER)
+    avatar           String?
+    resetToken       String?
+    resetTokenExpiry DateTime?
+
+    employerId String?      @db.ObjectId
+    Employer   Institution? @relation(fields: [employerId], references: [id])
+
+    Documents Document[]
+
+    @@map("users")
+}
+
+enum DocumentType {
+    BILL
+    RECEIPT
+    STATEMENT
+}
+
+enum InstitutionType {
+    FINANCIAL
+    UTILITY
+}
+
+model Institution {
+    id         String          @id @default(auto()) @map("_id") @db.ObjectId
+    name       String
+    identifier String
+    type       InstitutionType
+
+    Staff User[]
+}
+
+model Document {
+    id      String       @id @default(auto()) @map("_id") @db.ObjectId
+    type    DocumentType
+    subject String
+
+    customer   User   @relation(fields: [customerId], references: [id])
+    customerId String @db.ObjectId
+
+    attachment   String
+    creationDate DateTime
+    periodFrom   DateTime
+    periodTo     DateTime
+}
